@@ -4,69 +4,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+
+    <title>About Ash Mohaghegh</title>
 
     <style>
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f5;
-            color: #222222;
-            margin: 40px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f0ea;
+            color: #1f2933;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #17324d;
+            color: white;
+            padding: 70px 25px;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header p {
+            color: #d7e0e7;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         h1 {
-            color: #006644;
+            font-size: 48px;
+            margin: 0;
         }
 
-        h2 {
-            color: #006644;
+        .tagline {
+            font-size: 22px;
+            margin-top: 15px;
+            max-width: 700px;
+        }
+
+        nav {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 16px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        nav a {
+            color: #17324d;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #a64b2a;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         section {
             background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            padding: 32px;
+            margin-bottom: 25px;
+            border-left: 5px solid #a64b2a;
         }
 
-        a {
-            color: #006644;
+        h2 {
+            color: #17324d;
+            margin-top: 0;
         }
 
-        a:hover {
-            text-decoration: none;
+        .intro {
+            font-size: 20px;
         }
+
+        .highlight {
+            color: #a64b2a;
+            font-weight: bold;
+        }
+
+        .path {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .path-card {
+            flex: 1;
+            min-width: 220px;
+            background-color: #eef2f4;
+            padding: 22px;
+        }
+
+        .path-card h3 {
+            color: #17324d;
+            margin-top: 0;
+        }
+
+        .current-focus {
+            background-color: #17324d;
+            color: white;
+            border-left: 5px solid #d8a25e;
+        }
+
+        .current-focus h2 {
+            color: white;
+        }
+
+        footer {
+            background-color: #17324d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px 0;
+            }
+
+            .path {
+                display: block;
+            }
+
+            .path-card {
+                margin-bottom: 15px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <h1>About Me</h1>
+    <header>
 
-    <section>
-        <h2>Hello!</h2>
-        <p>
-            Welcome to my About Me page. I created this page
-            while learning HTML and CSS in OIM3690.
-        </p>
-    </section>
+        <div class="header-content">
 
-    <section>
-        <h2>What I Am Learning</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>GitHub Pages</li>
-            <li>Responsive design</li>
-            <li>Working with AI-generated code</li>
-        </ul>
-    </section>
+            <p>ASH MOHAGHEGH</p>
 
-    <section>
-        <h2>Navigation</h2>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="hello.html">Hello Page</a></p>
-    </section>
+            <h1>Cities. Technology. Ideas.</h1>
+
+            <p class="tagline">
+                I am interested in the spaces where technology,
+                entrepreneurship, and the future of cities meet.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="hello.html">Hello</a>
+        <a href="about-me.html">About Me</a>
+    </nav>
+
+
+    <main>
+
+        <section>
+
+            <h2>About Me</h2>
+
+            <p class="intro">
+                I'm <span class="highlight">Ash Mohaghegh</span>,
+                a senior at Babson College concentrating in
+                Technology Entrepreneurship.
+            </p>
+
+            <p>
+                My academic interests have gradually moved toward a
+                question that connects technology with the physical
+                world: how can we create cities that are more thoughtful,
+                adaptable, and designed around the people who live in them?
+            </p>
+
+            <p>
+                I am currently applying to graduate programs in
+                <span class="highlight">urban and city planning and design</span>.
+                I want to explore how entrepreneurial thinking and new
+                technologies can contribute to the way cities are planned,
+                experienced, and improved.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>What Connects the Dots</h2>
+
+            <div class="path">
+
+                <div class="path-card">
+
+                    <h3>Technology</h3>
+
+                    <p>
+                        Technology interests me because it can change
+                        how systems work and how people interact with
+                        the world around them.
+                    </p>
+
+                </div>
+
+
+                <div class="path-card">
+
+                    <h3>Entrepreneurship</h3>
+
+                    <p>
+                        My concentration at Babson has taught me to
+                        think about problems as opportunities to build,
+                        test, improve, and create something useful.
+                    </p>
+
+                </div>
+
+
+                <div class="path-card">
+
+                    <h3>Cities</h3>
+
+                    <p>
+                        Cities bring together design, infrastructure,
+                        movement, community, business, and technology.
+                        That complexity is exactly what draws me to
+                        urban planning and design.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="current-focus">
+
+            <h2>Where I'm Headed</h2>
+
+            <p>
+                My next step is graduate study in urban and city
+                planning and design.
+            </p>
+
+            <p>
+                I am especially interested in exploring how technology
+                and entrepreneurial thinking can support better urban
+                environments without losing sight of the people,
+                communities, and everyday experiences that make cities
+                meaningful.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>What I'm Learning Right Now</h2>
+
+            <p>
+                In OIM3690, I am learning how websites move from
+                structure to design: HTML organizes the content,
+                while CSS gives me control over color, spacing,
+                typography, layout, and responsiveness.
+            </p>
+
+            <p>
+                I am also learning that working with AI is not just
+                about asking it to generate code. The more useful skill
+                is being able to read what it produces, decide what I
+                want to keep, and make deliberate changes of my own.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Ash Mohaghegh • OIM3690 • Web Development with AI</p>
+    </footer>
 
 </body>
+
 </html>
