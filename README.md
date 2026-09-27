@@ -43,3 +43,41 @@ My weekly reflections are stored in the `logs` folder:
 - `logs/wk04.md`
 
 These notes document what I worked on, problems I encountered, things I learned, and observations about working with AI.
+
+## Mini Project 1
+
+### Reid Begelman Portfolio
+
+For Mini Project 1, I created a professional three-page portfolio website for Reid Begelman.
+
+The purpose of the project is to give Reid a professional online presence where recruiters, employers, and professional contacts can quickly learn about his background, view his resume, and contact him.
+
+The project includes:
+
+- An About / Home page
+- A Resume page
+- A Contact page
+- Reid's professional photograph
+- Babson College background
+- Marketing concentration
+- Strategy and Consulting concentration
+- Restaurant Brands International internship experience
+- Full-time return offer information
+- Resume PDF
+- Phone number
+- Email address
+- LinkedIn profile
+- Responsive design for desktop and mobile
+- Consistent navigation across all pages
+- Semantic HTML
+- CSS Grid and Flexbox
+- One shared external stylesheet
+- A favicon
+
+### Project Repository
+
+[Reid Begelman Portfolio Repository](https://github.com/ashmohaghegh05/reid-begelman-portfolio)
+
+### Live Website
+
+[View the Reid Begelman Portfolio](https://ashmohaghegh05.github.io/reid-begelman-portfolio/)
