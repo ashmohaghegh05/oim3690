@@ -92,6 +92,7 @@ function render() {
         } else {
             emptyMessage.textContent = "No tasks yet.";
         }
+
     } else {
         emptyMessage.style.display = "none";
     }
