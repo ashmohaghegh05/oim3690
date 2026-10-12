@@ -1,72 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+    color: #1f2937;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+main {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: white;
+}
 
-    <title>To-Do App</title>
+h1 {
+    margin-top: 0;
+}
 
-    <link rel="stylesheet" href="css/todo.css">
-</head>
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
 
-<body>
+#todo-input {
+    flex: 1;
+    padding: 10px;
+    font: inherit;
+    border: 1px solid #cccccc;
+}
 
-    <main>
+button {
+    padding: 10px 16px;
+    border: none;
+    background-color: #111827;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
 
-        <h1>My To-Do List</h1>
+button:hover {
+    background-color: #374151;
+}
 
-        <form id="todo-form">
+#filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-            <input
-                type="text"
-                id="todo-input"
-                placeholder="Enter a task"
-                required
-            >
+#filter-buttons button {
+    background-color: #e5e7eb;
+    color: #111827;
+}
 
-            <button type="submit">
-                Add
-            </button>
+#filter-buttons button:hover {
+    background-color: #d1d5db;
+}
 
-        </form>
+#filter-buttons .active-filter {
+    background-color: #111827;
+    color: white;
+}
 
-        <div id="filter-buttons">
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
 
-            <button
-                type="button"
-                data-filter="all"
-                class="active-filter"
-            >
-                All
-            </button>
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddddd;
+}
 
-            <button
-                type="button"
-                data-filter="open"
-            >
-                Open
-            </button>
+.todo-text {
+    flex: 1;
+}
 
-            <button
-                type="button"
-                data-filter="done"
-            >
-                Done
-            </button>
+.completed .todo-text {
+    text-decoration: line-through;
+    color: #6b7280;
+}
 
-        </div>
+.delete-button {
+    background-color: #b91c1c;
+}
 
-        <p id="empty-message">
-            No tasks yet.
-        </p>
+.delete-button:hover {
+    background-color: #991b1b;
+}
 
-        <ul id="todo-list"></ul>
-
-    </main>
-
-    <script src="js/todo.js"></script>
-
-</body>
-
-</html>
+#empty-message {
+    color: #6b7280;
+}
