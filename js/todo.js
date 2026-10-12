@@ -2,10 +2,12 @@ const form = document.querySelector("#todo-form");
 const input = document.querySelector("#todo-input");
 const list = document.querySelector("#todo-list");
 const emptyMessage = document.querySelector("#empty-message");
+const filterButtons = document.querySelectorAll("#filter-buttons button");
 
 const storageKey = "todos";
 
 let todos = loadTodos();
+let currentFilter = "all";
 
 
 function loadTodos() {
@@ -27,10 +29,19 @@ function saveTodos() {
 function render() {
     list.innerHTML = "";
 
-    emptyMessage.style.display =
-        todos.length === 0 ? "block" : "none";
+    let visibleTasks = 0;
 
     todos.forEach(function(todo, index) {
+
+        if (currentFilter === "open" && todo.completed) {
+            return;
+        }
+
+        if (currentFilter === "done" && !todo.completed) {
+            return;
+        }
+
+        visibleTasks++;
 
         const item = document.createElement("li");
         item.className = "todo-item";
@@ -38,6 +49,7 @@ function render() {
         if (todo.completed) {
             item.classList.add("completed");
         }
+
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -68,6 +80,21 @@ function render() {
 
         list.appendChild(item);
     });
+
+
+    if (visibleTasks === 0) {
+        emptyMessage.style.display = "block";
+
+        if (currentFilter === "open") {
+            emptyMessage.textContent = "No open tasks.";
+        } else if (currentFilter === "done") {
+            emptyMessage.textContent = "No completed tasks.";
+        } else {
+            emptyMessage.textContent = "No tasks yet.";
+        }
+    } else {
+        emptyMessage.style.display = "none";
+    }
 }
 
 
@@ -110,6 +137,24 @@ form.addEventListener("submit", function(event) {
     addTodo(text);
 
     input.value = "";
+});
+
+
+filterButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        currentFilter = button.dataset.filter;
+
+        filterButtons.forEach(function(otherButton) {
+            otherButton.classList.remove("active-filter");
+        });
+
+        button.classList.add("active-filter");
+
+        render();
+    });
+
 });
 
 
