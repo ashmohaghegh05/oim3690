@@ -1,77 +1,72 @@
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f7fa;
-    color: #1f2937;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-main {
-    max-width: 600px;
-    margin: 60px auto;
-    padding: 30px;
-    background-color: white;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-h1 {
-    margin-top: 0;
-}
+    <title>To-Do App</title>
 
-#todo-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-}
+    <link rel="stylesheet" href="css/todo.css">
+</head>
 
-#todo-input {
-    flex: 1;
-    padding: 10px;
-    font: inherit;
-    border: 1px solid #cccccc;
-}
+<body>
 
-button {
-    padding: 10px 16px;
-    border: none;
-    background-color: #111827;
-    color: white;
-    font: inherit;
-    cursor: pointer;
-}
+    <main>
 
-button:hover {
-    background-color: #374151;
-}
+        <h1>My To-Do List</h1>
 
-#todo-list {
-    list-style: none;
-    padding: 0;
-}
+        <form id="todo-form">
 
-.todo-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #dddddd;
-}
+            <input
+                type="text"
+                id="todo-input"
+                placeholder="Enter a task"
+                required
+            >
 
-.todo-text {
-    flex: 1;
-}
+            <button type="submit">
+                Add
+            </button>
 
-.completed .todo-text {
-    text-decoration: line-through;
-    color: #6b7280;
-}
+        </form>
 
-.delete-button {
-    background-color: #b91c1c;
-}
+        <div id="filter-buttons">
 
-.delete-button:hover {
-    background-color: #991b1b;
-}
+            <button
+                type="button"
+                data-filter="all"
+                class="active-filter"
+            >
+                All
+            </button>
 
-#empty-message {
-    color: #6b7280;
-}
+            <button
+                type="button"
+                data-filter="open"
+            >
+                Open
+            </button>
+
+            <button
+                type="button"
+                data-filter="done"
+            >
+                Done
+            </button>
+
+        </div>
+
+        <p id="empty-message">
+            No tasks yet.
+        </p>
+
+        <ul id="todo-list"></ul>
+
+    </main>
+
+    <script src="js/todo.js"></script>
+
+</body>
+
+</html>
