@@ -7,7 +7,7 @@
 
     <title>To-Do App</title>
 
-    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/todo.css?v=2">
 </head>
 
 <body>
@@ -31,19 +31,33 @@
 
         </form>
 
+
         <div id="filter-buttons">
-            <button type="button" data-filter="all">
+
+            <button
+                type="button"
+                data-filter="all"
+                class="active-filter"
+            >
                 All
             </button>
 
-            <button type="button" data-filter="open">
+            <button
+                type="button"
+                data-filter="open"
+            >
                 Open
             </button>
 
-            <button type="button" data-filter="done">
+            <button
+                type="button"
+                data-filter="done"
+            >
                 Done
             </button>
+
         </div>
+
 
         <p id="empty-message">
             No tasks yet.
