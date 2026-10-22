@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Discount</title>
+</head>
+
+<body>
+
+    <h1>Member Discount</h1>
+
+    <form id="discount-form">
+
+        <label for="total">Cart Total:</label>
+        <input type="number" id="total" min="0" required>
+
+        <br><br>
+
+        <label>
+            <input type="checkbox" id="member">
+            I am a member
+        </label>
+
+        <br><br>
+
+        <button type="submit">Get Discount</button>
+
+    </form>
+
+    <p id="result"></p>
+
+
+    <script>
+
+        function getDiscount(total, isMember) {
+
+            if (total >= 100) {
+
+                if (isMember) {
+                    return 20;
+                } else {
+                    return 10;
+                }
+
+            } else {
+                return 0;
+            }
+
+        }
+
+
+        const form = document.querySelector("#discount-form");
+        const totalInput = document.querySelector("#total");
+        const memberInput = document.querySelector("#member");
+        const result = document.querySelector("#result");
+
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const total = Number(totalInput.value);
+            const isMember = memberInput.checked;
+
+            const discount = getDiscount(total, isMember);
+
+            result.textContent = "Your discount is " + discount + "%.";
+
+        });
+
+    </script>
+
+</body>
+
+</html>
