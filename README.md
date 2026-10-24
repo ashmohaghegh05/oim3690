@@ -125,4 +125,145 @@ This exercise helped me understand how arrays store multiple values and how loop
 My weekly reflections are stored in the `logs` folder:
 
 - `logs/wk01.md`
-- `logs/wk02
+- `logs/wk02.md`
+- `logs/wk03.md`
+- `logs/wk04.md`
+- `logs/wk05.md`
+- `logs/wk06.md`
+- `logs/wk07.md`
+- `logs/wk08.md`
+
+These notes document what I worked on, problems I encountered, things I learned, observations about working with AI, and my progress understanding JavaScript.
+
+Week 6 also includes my **Predict Before You Delete** exercise, where I predicted what would happen when specific JavaScript code was removed and then tested the result.
+
+Week 7 focuses on reviewing and understanding JavaScript conditionals, logical operators, AI-generated code, and the Member Discount exercise.
+
+Week 8 covers Mini Project 2 progress, walkthrough preparation, JavaScript arrays and loops, filtering and counting patterns, and the Playlist exercise.
+
+---
+
+# Mini Project 1
+
+## Reid Begelman Portfolio
+
+For Mini Project 1, I created a professional three-page portfolio website for Reid Begelman.
+
+The purpose of the project is to give Reid a professional online presence where recruiters, employers, and professional contacts can quickly learn about his background, view his resume, and contact him.
+
+The project includes:
+
+- An About / Home page
+- A Resume page
+- A Contact page
+- Reid's professional photograph
+- Babson College background
+- Marketing concentration
+- Strategy and Consulting concentration
+- Professional and leadership experience
+- Restaurant Brands International internship experience
+- RBI visual branding
+- Full-time return offer information
+- Resume PDF
+- Phone number
+- Email address
+- LinkedIn profile
+- Responsive design for desktop and mobile
+- Consistent navigation across all pages
+- Semantic HTML
+- CSS Grid and Flexbox
+- One shared external stylesheet
+- An RB favicon
+- Client feedback documentation
+- Showcase feedback documentation
+
+### Project Repository
+
+[Reid Begelman Portfolio Repository](https://github.com/ashmohaghegh05/reid-begelman-portfolio)
+
+### Live Website
+
+[View the Reid Begelman Portfolio](https://ashmohaghegh05.github.io/reid-begelman-portfolio/)
+
+---
+
+# Mini Project 2
+
+## Internship Application Tracker
+
+For Mini Project 2, I created an interactive JavaScript tool for tracking internship applications.
+
+The tool is designed to help me keep all of my internship applications in one place and quickly understand how my application process is going.
+
+Instead of only displaying the information I enter, the tracker stores application data and calculates useful information from the full application state.
+
+The project includes:
+
+- Add Application form
+- Company and role tracking
+- Date applied
+- Application status
+- Notes
+- Follow-up tracking
+- Editable application statuses
+- Editable follow-up checkboxes
+- Delete application functionality
+- Status filtering
+- Reset All functionality
+- Custom invalid-input messages
+- Empty state
+- No-results filter state
+- After-reset state
+- `localStorage` so data survives a page refresh
+- Dynamic application rendering
+- Responsive design
+- Semantic HTML
+- Plain HTML, CSS, and JavaScript with no framework or outside API
+
+The tracker calculates:
+
+- Total applications
+- Active applications
+- Interviews
+- Offers
+- Applications needing follow-up
+
+### JavaScript State
+
+The main application data is stored in an array of objects.
+
+Each application remembers information such as:
+
+- Company
+- Role
+- Date applied
+- Status
+- Follow-up status
+- Notes
+- Unique ID
+
+The tracker saves this state to `localStorage` so applications remain after the browser is refreshed.
+
+The main application flow is:
+
+**User action → change state → save state → calculate updated results → render the page**
+
+### Design Process
+
+Before building the final interface, I compared three different design directions:
+
+- Editorial Career Intelligence
+- Precision Command Center
+- Swiss Career Dossier
+
+I selected **Swiss Career Dossier** because it made the calculated application progress easy to see while keeping the interface professional and distinctive.
+
+The final design uses large typography, strong grid lines, numbered application records, a warm background, and a single blue accent.
+
+### Project Repository
+
+[Internship Application Tracker Repository](https://github.com/ashmohaghegh05/internship-application-tracker)
+
+### Live Website
+
+[View the Internship Application Tracker](https://ashmohaghegh05.github.io/internship-application-tracker/)
