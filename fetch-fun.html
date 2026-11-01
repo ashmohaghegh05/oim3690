@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Something Fun</title>
+</head>
+
+<body>
+
+    <h1>Fetch Something Fun</h1>
+
+    <button id="fetch-button" type="button">
+        Get Advice
+    </button>
+
+    <p id="result">
+        Click the button to load some advice.
+    </p>
+
+
+    <script>
+
+        const button = document.querySelector("#fetch-button");
+        const result = document.querySelector("#result");
+
+
+        button.addEventListener("click", async function() {
+
+            result.textContent = "Loading...";
+
+            try {
+
+                const response = await fetch(
+                    "https://api.adviceslip.com/advice"
+                );
+
+
+                if (!response.ok) {
+                    throw new Error(
+                        "Request failed: " + response.status
+                    );
+                }
+
+
+                const data = await response.json();
+
+                result.textContent = data.slip.advice;
+
+            } catch (error) {
+
+                result.textContent =
+                    "Could not load advice. Please try again.";
+
+                console.log(error);
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
