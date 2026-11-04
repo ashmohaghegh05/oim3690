@@ -267,3 +267,8 @@ The final design uses large typography, strong grid lines, numbered application 
 ### Live Website
 
 [View the Internship Application Tracker](https://ashmohaghegh05.github.io/internship-application-tracker/)
+
+### Mini Project 3 — Weather Outfit Planner
+
+- [Live Site](https://ashmohaghegh05.github.io/weather-outfit-planner/)
+- [GitHub Repository](https://github.com/ashmohaghegh05/weather-outfit-planner)
