@@ -1,14 +1,11 @@
 export default async function handler(request, response) {
-
     if (request.method !== "POST") {
         return response.status(405).json({
             error: "Method not allowed."
         });
     }
 
-
     const { question } = request.body;
-
 
     if (!question || question.trim() === "") {
         return response.status(400).json({
@@ -16,9 +13,7 @@ export default async function handler(request, response) {
         });
     }
 
-
     try {
-
         const aiResponse = await fetch(
             "https://openrouter.ai/api/v1/chat/completions",
             {
@@ -33,7 +28,8 @@ export default async function handler(request, response) {
                 },
 
                 body: JSON.stringify({
-                    model: "openrouter/free",
+                    model:
+                        "deepseek/deepseek-v4.1-flash-1017",
 
                     messages: [
                         {
@@ -45,13 +41,14 @@ export default async function handler(request, response) {
             }
         );
 
-
         if (!aiResponse.ok) {
-
             const errorText =
                 await aiResponse.text();
 
-            console.error(errorText);
+            console.error(
+                "OpenRouter error:",
+                errorText
+            );
 
             return response.status(500).json({
                 error:
@@ -59,33 +56,25 @@ export default async function handler(request, response) {
             });
         }
 
-
         const data =
             await aiResponse.json();
-
 
         const answer =
             data.choices?.[0]?.message?.content;
 
-
         if (!answer) {
-
             return response.status(500).json({
                 error:
                     "No answer was returned."
             });
         }
 
-
         return response.status(200).json({
             answer: answer
         });
 
-
     } catch (error) {
-
         console.error(error);
-
 
         return response.status(500).json({
             error:
