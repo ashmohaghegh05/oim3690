@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ask AI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+
+            background: #f5f2ea;
+            color: #18212b;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 48px;
+        }
+
+        .intro {
+            margin-bottom: 30px;
+            color: #5f6872;
+            line-height: 1.6;
+        }
+
+        form {
+            padding: 25px;
+
+            border: 1px solid #18212b;
+            background: white;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 130px;
+
+            padding: 14px;
+
+            border: 1px solid #999;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 22px;
+
+            border: 0;
+
+            background: #18212b;
+            color: white;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #answer {
+            margin-top: 30px;
+            padding: 25px;
+
+            border: 1px solid #c9c9c9;
+            background: white;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error {
+            color: #a12f2f;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <main>
+
+        <h1>Ask AI</h1>
+
+        <p class="intro">
+            Type a question below and send it to
+            the AI through my server function.
+        </p>
+
+
+        <form id="ask-form">
+
+            <label for="question">
+                YOUR QUESTION
+            </label>
+
+            <textarea
+                id="question"
+                name="question"
+                placeholder="Ask me something..."
+                required
+            ></textarea>
+
+
+            <button
+                id="ask-button"
+                type="submit"
+            >
+                ASK AI
+            </button>
+
+        </form>
+
+
+        <section
+            id="answer"
+            class="hidden"
+            aria-live="polite"
+        ></section>
+
+    </main>
+
+
+    <script>
+        const form =
+            document.querySelector("#ask-form");
+
+        const questionInput =
+            document.querySelector("#question");
+
+        const button =
+            document.querySelector("#ask-button");
+
+        const answerBox =
+            document.querySelector("#answer");
+
+
+        form.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const question =
+                    questionInput.value.trim();
+
+
+                if (question === "") {
+                    return;
+                }
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "ASKING...";
+
+
+                answerBox.classList.remove(
+                    "hidden",
+                    "error"
+                );
+
+                answerBox.textContent =
+                    "Thinking...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/ask",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        question: question
+                                    })
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.error ||
+                            "The request failed."
+                        );
+                    }
+
+
+                    answerBox.textContent =
+                        data.answer;
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+
+                    answerBox.classList.add(
+                        "error"
+                    );
+
+
+                    answerBox.textContent =
+                        "Sorry, the AI could not answer right now.";
+                }
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "ASK AI";
+            }
+        );
+    </script>
+
+</body>
+
+</html>
