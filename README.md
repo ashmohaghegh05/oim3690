@@ -8,7 +8,7 @@ In this course I am learning how websites work and how artificial intelligence c
 
 The goal is not only to generate working code, but also to understand, evaluate, test, debug, and improve the code that AI produces.
 
-As the course has progressed, I have also started using JavaScript to make webpages interactive, store data, respond to user actions, work with arrays and loops, and build small browser-based tools.
+As the course has progressed, I have also started using JavaScript to make webpages interactive, store data, respond to user actions, work with arrays and loops, fetch data from APIs, and build small browser-based tools.
 
 ## Topics Covered So Far
 
@@ -58,6 +58,17 @@ As the course has progressed, I have also started using JavaScript to make webpa
 - `JSON.stringify()`
 - Filtering data
 - Updating page content from JavaScript state
+- APIs
+- JSON responses
+- `fetch()`
+- `async` and `await`
+- `try/catch`
+- `response.ok`
+- GET and POST requests
+- API keys and environment variables
+- Serverless functions
+- Calling an LLM API
+- Vercel deployment
 
 ## Pages and Exercises
 
@@ -69,6 +80,10 @@ As the course has progressed, I have also started using JavaScript to make webpa
 - `converter.html` — Celsius-to-Fahrenheit JavaScript converter
 - `discount.html` — Member Discount exercise using a cart total, membership checkbox, and conditional logic
 - `playlist.html` — Playlist page that displays songs from a JavaScript array
+- `post-message.html` — Message Board exercise that sends a message with a POST request
+- `fetch-fun.html` — Fetch Something Fun exercise that gets data from an API and displays part of the response
+- `ai-chat.html` — Ask AI exercise that sends a question to a serverless API function
+- `api/ask.js` — Vercel serverless function that securely calls the OpenRouter API
 - `css/styles.css` — shared stylesheet
 - `css/todo.css` — styling for the To-Do application
 - `js/todo.js` — JavaScript for adding, completing, deleting, saving, and filtering tasks
@@ -120,6 +135,39 @@ For each song, JavaScript creates a new list item with `createElement()`, adds t
 
 This exercise helped me understand how arrays store multiple values and how loops can repeat the same action for every item in an array.
 
+### Message Board
+
+I created a Message Board exercise to practice sending data to an API with a POST request.
+
+The page includes:
+
+- A text box
+- A button
+- A POST request to the course API
+- My GitHub username used as the token
+
+This exercise helped me understand the difference between requesting data and sending data to an API.
+
+### Fetch Something Fun
+
+I created a Fetch Something Fun exercise to practice `fetch()`, `async`, `await`, JSON, and error handling.
+
+The page fetches data from an API when the user clicks a button and displays a field from the response.
+
+The request uses `try/catch` and checks `response.ok`.
+
+### Ask AI
+
+I created an Ask AI exercise that sends a user's question to an LLM through a Vercel serverless function.
+
+The API key is stored securely as a Vercel environment variable instead of being placed in the public GitHub repository.
+
+The page sends the question to `api/ask.js`, and the serverless function calls the OpenRouter API and returns the model's answer.
+
+**Live Ask AI Page:**
+
+https://oim3690-kohl.vercel.app/ai-chat.html
+
 ## Weekly Notes
 
 My weekly reflections are stored in the `logs` folder:
@@ -132,16 +180,21 @@ My weekly reflections are stored in the `logs` folder:
 - `logs/wk06.md`
 - `logs/wk07.md`
 - `logs/wk08.md`
+- `logs/wk09.md`
 
 These notes document what I worked on, problems I encountered, things I learned, observations about working with AI, and my progress understanding JavaScript.
 
-Week 6 also includes my **Predict Before You Delete** exercise, where I predicted what would happen when specific JavaScript code was removed and then tested the result.
+Week 6 also includes my Predict Before You Delete exercise, where I predicted what would happen when specific JavaScript code was removed and then tested the result.
 
 Week 7 focuses on reviewing and understanding JavaScript conditionals, logical operators, AI-generated code, and the Member Discount exercise.
 
 Week 8 covers Mini Project 2 progress, walkthrough preparation, JavaScript arrays and loops, filtering and counting patterns, and the Playlist exercise.
 
----
+Week 9 covers APIs, JSON, `fetch()`, `async/await`, error handling, the Message Board exercise, Fetch Something Fun, and my three Mini Project 3 ideas.
+
+My three Mini Project 3 ideas are written in `logs/wk09.md` using the required format:
+
+`I wish I had a tool that looks up ___ and helps me ___.`
 
 # Mini Project 1
 
@@ -179,13 +232,11 @@ The project includes:
 
 ### Project Repository
 
-[Reid Begelman Portfolio Repository](https://github.com/ashmohaghegh05/reid-begelman-portfolio)
+Reid Begelman Portfolio Repository
 
 ### Live Website
 
-[View the Reid Begelman Portfolio](https://ashmohaghegh05.github.io/reid-begelman-portfolio/)
-
----
+View the Reid Begelman Portfolio
 
 # Mini Project 2
 
@@ -228,7 +279,7 @@ The tracker calculates:
 - Offers
 - Applications needing follow-up
 
-### JavaScript State
+## JavaScript State
 
 The main application data is stored in an array of objects.
 
@@ -248,7 +299,7 @@ The main application flow is:
 
 **User action → change state → save state → calculate updated results → render the page**
 
-### Design Process
+## Design Process
 
 Before building the final interface, I compared three different design directions:
 
@@ -256,7 +307,7 @@ Before building the final interface, I compared three different design direction
 - Precision Command Center
 - Swiss Career Dossier
 
-I selected **Swiss Career Dossier** because it made the calculated application progress easy to see while keeping the interface professional and distinctive.
+I selected Swiss Career Dossier because it made the calculated application progress easy to see while keeping the interface professional and distinctive.
 
 The final design uses large typography, strong grid lines, numbered application records, a warm background, and a single blue accent.
 
@@ -268,7 +319,49 @@ The final design uses large typography, strong grid lines, numbered application 
 
 [View the Internship Application Tracker](https://ashmohaghegh05.github.io/internship-application-tracker/)
 
-### Mini Project 3 — Weather Outfit Planner
+# Mini Project 3
 
-- [Live Site](https://ashmohaghegh05.github.io/weather-outfit-planner/)
-- [GitHub Repository](https://github.com/ashmohaghegh05/weather-outfit-planner)
+## Weather Outfit Planner
+
+For Mini Project 3, I created a weather-based outfit planner that helps a user decide exactly what to wear for a specific destination, date, time, and occasion.
+
+The application uses Open-Meteo to find the selected location and retrieve its hourly weather forecast.
+
+Instead of only displaying weather data, the application uses the forecast to work out a complete outfit.
+
+The recommendation can include:
+
+- Top
+- Bottom
+- Mid Layer
+- Outer Layer
+- Shoes
+- Accessories
+
+The recommendation considers:
+
+- Temperature
+- Feels-like temperature
+- Humidity
+- Precipitation
+- Snow
+- Wind
+- Weather condition
+- Occasion
+
+The available occasions are:
+
+- Interview
+- Class
+- Casual
+- Outdoor
+
+The final interface uses a playful editorial design with pastel colors, rounded cards, sticker-style labels, and offset shadows.
+
+### Live Site
+
+[Weather Outfit Planner](https://ashmohaghegh05.github.io/weather-outfit-planner/)
+
+### GitHub Repository
+
+[Weather Outfit Planner Repository](https://github.com/ashmohaghegh05/weather-outfit-planner)
