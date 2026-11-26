@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Buzzword Meter",
+  "version": "1.0.0",
+  "description": "Counts selected buzzwords on Lever job postings.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Buzzword Meter",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://jobs.lever.co/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
